@@ -9,6 +9,25 @@ project(hunter2_gazebo)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   gazebo_ros
+      roslib
+    roscpp
+    rospy
+    tf2
+    tf2_ros
+    tf2_geometry_msgs
+    ackermann_msgs
+    nav_msgs
+    sensor_msgs
+    geometry_msgs
+    styx_msgs
+
+    interactive_markers
+    visualization_msgs
+
+    std_msgs
+    message_generation
+
+    waypoint_follower
 )
 
 ## System dependencies are found with CMake's conventions
@@ -119,9 +138,7 @@ include_directories(
 )
 
 ## Declare a C++ library
-# add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/hunter2_gazebo.cpp
-# )
+
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
@@ -131,7 +148,8 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/hunter2_gazebo_node.cpp)
+ add_executable(transformer_node src/transform_publisher.cpp)
+
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -141,12 +159,12 @@ include_directories(
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-# add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+## add_dependencies(transformer_node src/transform_publisher.cpp)
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(${PROJECT_NAME}_node
-#   ${catkin_LIBRARIES}
-# )
+ target_link_libraries(transformer_node
+   ${catkin_LIBRARIES}
+ )
 
 #############
 ## Install ##

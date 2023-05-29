@@ -16,6 +16,8 @@
   <!-- push robot_description to factory and spawn robot in gazebo -->
   <node name="hunter_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model hunter2_base -z 0.05"
     respawn="false" />
+    
+   
 
   </launch>
 
